@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SudokuGrid : MonoBehaviour
 {
-    [SerializeField] private int gridSize = 0;
+    private int gridSize = 0;
     [SerializeField] private GameObject tileUI;
+    [SerializeField] private GameObject ObjectMenu;
+    [SerializeField] private GameObject selectionButton;
     [SerializeField] public LevelObject level;
     [SerializeField] public static LevelObject levelStatic;
 
@@ -14,9 +16,9 @@ public class SudokuGrid : MonoBehaviour
         levelStatic = level;
 
         SetGridLayout();
+        SetSelectionButtons();
         SpawnTiles();
-
-
+        SpawnSelectionButtons();
     }
 
     void SetGridLayout() {
@@ -32,5 +34,13 @@ public class SudokuGrid : MonoBehaviour
                 Instantiate(tileUI, transform.position, transform.rotation, gameObject.transform);
             }
         }
+    }
+
+    void SetSelectionButtons() {
+        GridLayoutGroup objectLayout = ObjectMenu.GetComponent<GridLayoutGroup>();
+    }
+
+    void SpawnSelectionButtons() {
+
     }
 }
