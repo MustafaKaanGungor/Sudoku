@@ -12,6 +12,8 @@ public class SudokuGrid : MonoBehaviour
     [SerializeField] public LevelObject level;
     [SerializeField] public static LevelObject levelStatic;
 
+    [SerializeField] public int selectedItem;
+
     void Start() {
         levelStatic = level;
 
@@ -38,9 +40,25 @@ public class SudokuGrid : MonoBehaviour
 
     void SetSelectionButtons() {
         GridLayoutGroup objectLayout = ObjectMenu.GetComponent<GridLayoutGroup>();
+
+        if(gridSize < 5) {
+            objectLayout.cellSize = new Vector2(800/(gridSize+1),250);
+        } else {
+            objectLayout.cellSize = new Vector2(800 * 2/(gridSize+1),125);
+        }
     }
 
     void SpawnSelectionButtons() {
+        for(int i = 0; i <= gridSize; i++) {
+            Instantiate(selectionButton, ObjectMenu.transform.position, ObjectMenu.transform.rotation, ObjectMenu.transform);
+        }
 
+        Invoke("setColorsofButtons", 1f);
+    }
+
+    void setColorsofButtons() {
+        for(int i = 0; i < gridSize; i++) {
+            ObjectMenu.transform.GetChild(i).GetComponent<ButtonBody>().changeColor(i);
+        }
     }
 }

@@ -48,3 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3bd98420fb35645ba48775fe45bfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 4267894776240795236, guid: 8e9841bb3751d184394872af7d797258, type: 3}
+  SelectionButton: {fileID: 1116817763787905527, guid: 905f91f008c58f040b55ebb645c0aa7c, type: 3}
+  spawnedTile: {fileID: 0}
+  spawnedTileButton: {fileID: 0}
+  canvas: {fileID: 0}
